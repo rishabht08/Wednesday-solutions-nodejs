@@ -1,0 +1,39 @@
+const users = [
+    {   
+        id:1,
+        name:"Rishab",
+        userName:"rishabht123",
+        email:"rishabht123@gmail.com",
+        password:"123456789"  
+    },
+    {
+        id:2,
+        name:"Rishu",
+        userName:"rishabht1234",
+        email:"rishabht1234@gmail.com",
+        password:"123456789"
+    },
+    {
+        id:3,
+        name:"Rupesh",
+        userName:"rishabht12345",
+        email:"rishabht12345@gmail.com",
+        password:"123456789"
+    },
+    {
+        id:4,
+        name:"Abcde",
+        userName:"rishabht12356",
+        email:"rishabht12365@gmail.com",
+        password:"123456789"
+    },
+    {
+        id:5,
+        name:"RishabT",
+        userName:"rishabht23",
+        email:"rishabht23@gmail.com",
+        password:"123456789"
+    },
+]
+
+module.exports = users

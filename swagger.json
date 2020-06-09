@@ -1,0 +1,178 @@
+{
+    "swagger": "2.0",
+    "info": {
+      "description": "This is a sample server Cab Booking App's server.",
+      "version": "1.0.0",
+      "title": "Cab Booking App",
+      "termsOfService": "http://swagger.io/terms/",
+      "contact": {
+        "email": "apiteam@swagger.io"
+      },
+      "license": {
+        "name": "Apache 2.0",
+        "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+      }
+    },
+
+    "host": "localhost:6060",
+   
+    "schemes": [
+     
+      "http"
+    ],
+    "paths": {
+   
+      "/user": {
+        "post": {
+          "summary": "Create user ",
+          "description": "Create User",
+          "parameters": [
+            {
+              "name": "user",
+              "in": "body",
+              "description": "User Details",
+              "schema": {
+                "type": "object",
+                "required": [
+                  "userName",
+                  "password",
+                  "name",
+                  "email"
+                ],
+                "properties": {
+                  "userName": {
+                    "type": "string"
+                  },
+                  "name": {
+                    "type": "string"
+                  },
+                  "password": {
+                    "type": "string"
+                  },
+                  "email":{
+                      "type":"string"
+                  }
+                }
+              }
+            }
+           
+          ],
+          "responses": {
+            "201": {
+              "description": "successful operation"
+             
+            },
+            "400": {
+              "description": "Invalid value"
+            }
+          }
+        }
+      },
+      "/user/bookings":{
+          "get":{
+              "summary" : "Get user bookings",
+              "description" : "Get user bookings",
+              "parameters":[
+                  {
+                    "name": "token",
+                    "in": "header",
+                    "description": "Get user booking details from hash token"
+                  },
+                  {
+                      "name": "pageindex",
+                      "in":"query",
+                      "description": "Page Number",
+                      "type" : "integer",
+                      "default": 0
+                  },
+                  {
+                    "name": "pageSize",
+                    "in":"query",
+                    "description": "Page Size",
+                    "type" : "integer",
+                    "default": 10
+                }
+              ],
+              "responses":{
+
+                  "200": {
+                    "description": "successful operation"
+                   
+                  },
+                  "401": {
+                    "description": "Unauthorised"
+                  }
+
+              }
+          }
+      },
+      "/booking/book/cab":{
+          "post":{
+              "summary":"Book Cab",
+              "description": "Book Cab from source to origin",
+              "parameters":[
+                  {
+                      "name":"token",
+                      "in" : "header",
+                      "description": "Book user from hash token"
+
+                  },
+                  {
+                    "name": "from",
+                    "in":"query",
+                    "description": "Source Place",
+                    "type" : "string",
+                    "default": "delhi"
+                },
+                {
+                  "name": "to",
+                  "in":"query",
+                  "description": "Destination Place",
+                  "type" : "string",
+                  "default": "pune"
+              }
+
+              ],
+              "responses": {
+                "201": {
+                  "description": "successful operation"
+                 
+                },
+                "400": {
+                  "description": "Invalid value"
+                }
+              }
+          }
+      },
+      "/booking/nearest-cabs":{
+        "get":{
+          "summary":"Get Nearest Cabs",
+          "description": "Get nearest cab based on user's location",
+          "parameters":[
+            {
+              "name":"token",
+              "in" : "header",
+              "description": "Token for authorisation"
+            },
+            {
+              "name": "location",
+              "in":"query",
+              "description": "Current Location",
+              "type" : "string",
+              "default": "delhi"
+          }
+          ],
+          "responses": {
+            "200": {
+              "description": "successful operation"
+             
+            },
+            "400": {
+              "description": "Invalid Token"
+            }
+          }
+        }
+      }
+    }
+}
+  

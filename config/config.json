@@ -1,0 +1,26 @@
+{
+  "development": {
+    "username": "rishabht",
+    "password": "a891330011RT1",
+    "database": "cabbooking",
+    "host": "postgresql-9165-0.cloudclusters.net",
+    "dialect": "postgres",
+    "port":9165
+  },
+  "test": {
+    "username": "postgres",
+    "password": "a891330011RT1",
+    "database": "cabbookingtest",
+    "host": "localhost",
+    "dialect": "postgres"
+ 
+  },
+  "production": {
+    "username": "postgres",
+    "password": "a891330011RT1",
+    "database": "cabbookingtest",
+    "host": "localhost",
+    "dialect": "postgres"
+  }
+}
+
